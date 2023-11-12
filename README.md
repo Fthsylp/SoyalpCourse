@@ -1,4 +1,4 @@
-Some screenshot from the project.
+Some screenshots from the project.
 
 ![Screenshot 2023-11-13 011704](https://github.com/Fthsylp/SoyalpCourse/assets/77408301/9f387bad-eed9-4091-95ba-fbc9e7fd1aeb)
 
