@@ -1,0 +1,31 @@
+﻿@model  SoyalpCourse.Data.Entities.Department
+
+@{
+    ViewBag.Title = "Delete Department";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@if (Model == null)
+{
+    <div class="alert alert-danger"> Can't find the department!</div>
+}
+else
+{
+    <form class="d-inline" action="@Url.Action("Delete")" method="post">
+        <div class="row">
+            <input type="hidden" value="@Model.Id" name="Id" />
+            <div class="col-9">
+                <p class="alert alert-dark mb-0"> Are you sure you want to delete <b>@Model.Name</b>?</p>
+            </div>
+            <div class="col-2 d-flex align-items-center">
+                <input class="btn btn-info m-1" type="submit" value="Delete" />
+                <input class="btn btn-info " type="button" value="Go back" onclick="history.back()">
+            </div>
+        </div>
+    </form>
+
+
+}

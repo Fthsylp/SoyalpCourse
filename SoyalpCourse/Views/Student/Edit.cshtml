@@ -1,0 +1,67 @@
+﻿@model  SoyalpCourse.Data.Entities.Student
+
+@{
+    ViewBag.Title = "Edit Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@if (Model == null)
+{
+    <div class="alert alert-danger"> Can't find the department!</div>
+}
+else
+{
+<form class="d-inline" action="@Url.Action("Edit")" method="post">
+    <div class="row">
+        <div class="m-1">
+            <label for="Image">Student Image</label>
+            <input type="file" name="Image" class="form-control" value="@Model.Image" />
+        </div>
+        <div class="m-1">
+            <label for="Name">Student Name:</label>
+            <input type="text" name="Name" class="form-control" value="@Model.Name" />
+        </div>
+
+        <div class="m-1">
+            <label for="Surname">Student Surname:</label>
+            <input type="text" name="Surname" class="form-control" value="@Model.Surname" />
+        </div>
+
+        <div class="m-1">
+            <label for="Number">Student Number:</label>
+            <input type="number" name="Number" min="0" max="10000" class="form-control" value="@Model.Number" />
+        </div>
+        <label>Gender</label>
+        <div class="m-1">
+            <input type="radio" value="false" class="" name="Gender" checked /> Male
+            <input type="radio" value="true" class="" name="Gender" /> Female
+        </div>
+
+        <div class="m-1">
+            <label for="BirthDate">Birth Date</label>
+            <input type="date" name="BirthDate" class="form-control" value="@Model.BirthDate.ToString("yyyy-MM-dd")" />
+        </div>
+        <div class="m-1">
+            <label for="IsActive">Activation Status:</label>
+            <input type="radio" value="true" class="" name="IsActive" @(Model.IsActive ? "checked" : "") /> Yes
+            <input type="radio" value="false" class="" name="IsActive" @(Model.IsActive ? "" : "checked") /> False
+        </div>
+        <div class="m-1">
+            <label for="DepartmentId">Department</label>
+            <select class="form-select" name="DepartmentId">
+                @foreach (SoyalpCourse.Data.Entities.Department item in ViewBag.Departments)
+                {
+                    <option value="@item.Id" @(Model.DepartmentId == item.Id ? "selected" : "")>@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="m-1">
+            <input type="submit" class="btn btn-dark" value="Save" />
+        </div>
+    </div>
+</form>
+
+}

@@ -1,0 +1,50 @@
+﻿@model SoyalpCourse.Data.Entities.Student
+@{
+    ViewBag.Title = "Student Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <table>
+        <tr>
+            <td>Student Image</td>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.Image))
+                {<img src="~/Uploads/@Model.Image" />}
+        </td>
+        </tr>
+        <tr>
+            <td>Student Name:</td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>Student Surname:</td>
+            <td>@Model.Surname</td>
+        </tr>
+        <tr>
+            <td>Student Number:</td>
+            <td>@Model.Number</td>
+        </tr>
+        <tr>
+            <td>Student BirthDate:</td>
+            <td>@Model.BirthDate</td>
+        </tr>
+        <tr>
+            <td>Student Gender</td>
+            <td>@(Model.Gender ? "Female":"Male")</td>
+        </tr>
+        <tr>
+            <td>Department Name:</td>
+            <td>@Model.Department.Name</td>
+        </tr>
+        <tr>
+            <td>Activation Status:</td>
+            <td>@(Model.IsActive ? "Yes":"No")</td>
+        </tr>
+    </table>
+</div>
+<div>
+        <input class="btn btn-dark" type="button" value="Go back!" onclick="history.back()">
+</div>

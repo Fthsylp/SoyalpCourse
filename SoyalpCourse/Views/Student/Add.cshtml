@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Add Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form class="d-inline" action="@Url.Action("Add")" method="post">
+    <div class="row">
+
+        <div>
+            <label for="Image">Student Image</label>
+            <input type="file" name="Image" class="form-control"/>
+        </div>
+
+        <div class="m-1">
+            <label for="Name">Student Name:</label>
+            <input type="text" name="Name" class="form-control" />
+        </div>
+
+        <div class="m-1">
+            <label for="Surname">Student Surname:</label>
+            <input type="text" name="Surname" class="form-control" />
+        </div>
+
+        <div class="m-1">
+            <label for="Number">Student Number:</label>
+            <input type="number" name="Number" min="0" max="10000" class="form-control" />
+        </div>
+        <label>Gender</label>
+        <div class="m-1">
+            <input type="radio" value="false" class="" name="Gender" checked /> Male
+            <input type="radio" value="true" class="" name="Gender" /> Female
+        </div>
+
+        <div class="m-1">
+            <label for="BirthDate">Birth Date</label>
+            <input type="date" name="BirthDate" class="form-control" />
+        </div>
+        <div class="m-1">
+            <label for="IsActive">Activation Status:</label>
+            <input type="radio" value="true" class="" name="IsActive" checked /> Yes
+            <input type="radio" value="false" class="" name="IsActive" /> False
+        </div>
+        <div class="m-1">
+            <label for="DepartmentId">Bölüm</label>
+            <select class="form-select" name="DepartmentId">
+                @foreach (SoyalpCourse.Data.Entities.Department item in ViewBag.Departments)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="m-1">
+            <input type="submit" class="btn btn-dark" value="Save" />
+        </div>
+    </div>
+</form>

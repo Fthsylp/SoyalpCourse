@@ -1,0 +1,30 @@
+﻿@model  SoyalpCourse.Data.Entities.Department
+
+@{
+    ViewBag.Title = "Edit Department";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@if (Model == null)
+{
+    <div class="alert alert-danger"> Can't find the department!</div>
+}
+else
+{
+    <form class="d-inline" action="@Url.Action("Edit")" method="post">
+        <div class="row">
+            <input type="hidden" value="@Model.Id" name="Id" />
+            <label class="col-2">Department Name:</label>
+            <div class="col-3">
+                <input class="form-control" name="Name" value="@Model.Name" required />
+            </div>
+            <div class="col-2">
+                <input class="btn btn-info" type="submit" value="Save" />
+            </div>
+        </div>
+    </form>
+
+}
